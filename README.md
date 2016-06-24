@@ -43,12 +43,19 @@ Examples below.
 // Generate noise with generation constructor
 
 Noise noise(
+
 	800,  // width
+	
 	600,  // height
+	
 	6.5,  // frequency
+	
 	3,    // octaves
+	
 	0.75, // persistence
+	
 	42    // seed
+	
 );
 
 // Print noise at 55, 99 using get function
