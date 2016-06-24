@@ -15,15 +15,19 @@ standard library random engine seeded with the provided seed. To
 get noise values, use the "get" function. Examples below.
 
 // Create reference Perlin generator
+
 Generator generator();
 
 // Print noise at 55, 99, 0
+
 std::cout << generator.get(55, 99, 0) << std::endl;
 
 // Create new noise with new seed
+
 generator = Generator(42);
 
 // Print new noise at 55, 99, 0
+
 std::cout << generator.get(55, 99, 0) << std::endl;
 
 # Perlin::Noise
@@ -37,6 +41,7 @@ immediately call the generate function during construction.
 Examples below.
 
 // Generate noise with generation constructor
+
 Noise noise(
 	800,  // width
 	600,  // height
@@ -47,9 +52,11 @@ Noise noise(
 );
 
 // Print noise at 55, 99 using get function
+
 std::cout << noise.get(55, 99) << std::endl;
 
 // Generate new noise with generate function
+
 noise.generate(
 	800,  // width
 	600,  // height
@@ -60,4 +67,5 @@ noise.generate(
 );
 
 // Print new noise at 55, 99 using get function again
+
 std::cout << noise.get(55, 99) << std::endl;
