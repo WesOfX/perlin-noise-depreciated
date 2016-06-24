@@ -65,12 +65,19 @@ std::cout << noise.get(55, 99) << std::endl;
 // Generate new noise with generate function
 
 noise.generate(
+
 	800,  // width
+	
 	600,  // height
+	
 	6.5,  // frequency
+	
 	3,    // octaves
+	
 	0.75, // persistence
+	
 	9001  // new seed!
+	
 );
 
 // Print new noise at 55, 99 using get function again
