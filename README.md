@@ -18,8 +18,8 @@ Generator generator();
 // Print noise at 55, 99, 0
 std::cout << generator.get(55, 99, 0) << std::endl;
 
-// Create new noise with new seed
-generator = Generator(42);
+// Reseed noise with new seed
+generator.reseed(42);
 
 // Print new noise at 55, 99, 0
 std::cout << generator.get(55, 99, 0) << std::endl;
