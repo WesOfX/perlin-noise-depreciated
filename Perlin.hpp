@@ -10,7 +10,8 @@ namespace Perlin{
 	* reference values from his reference Java implementation. Using
 	* the seed constructor the permutation vector is generated using a
 	* standard library random engine seeded with the provided seed. To
-	* get noise values, use the "get" function. Examples below.
+	* get noise values, use the "get" function. To reseed the noise, use the
+	* "reseed" function. Examples below.
 	* 
 	* // Create reference Perlin generator
 	* Generator generator();
@@ -18,8 +19,8 @@ namespace Perlin{
 	* // Print noise at 55, 99, 0
 	* std::cout << generator.get(55, 99, 0) << std::endl;
 	* 
-	* // Create new noise with new seed
-	* generator = Generator(42);
+	* // Reseed noise with new seed
+	* generator.reseed(42);
 	* 
 	* // Print new noise at 55, 99, 0
 	* std::cout << generator.get(55, 99, 0) << std::endl;
@@ -39,6 +40,9 @@ namespace Perlin{
 		
 		// Returns noise value between -1.0 and 1.0
 		double get(double x, double y, double z) const;
+		
+		// Repopulates permutation vector using new seed
+		void reseed(unsigned int seed);
 		
 	private:
 		// Functions for interpolating noise

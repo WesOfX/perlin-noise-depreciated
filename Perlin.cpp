@@ -37,21 +37,7 @@ Perlin::Generator::Generator(){
 
 // Creates Perlin noise generator with a custom seed
 Perlin::Generator::Generator(unsigned int seed){
-	permutation.resize(256);
-
-	// Fill permutation with 0 to 255
-	std::iota(permutation.begin(), permutation.end(), 0);
-
-	// Shuffle permutation with seed
-	std::default_random_engine engine(seed);
-	std::shuffle(permutation.begin(), permutation.end(), engine);
-
-	// Duplicate permutation
-	permutation.insert(
-		permutation.end(),
-		permutation.begin(),
-		permutation.end()
-	);
+	reseed(seed);
 }
 
 // Returns noise value between -1.0 and 1.0
@@ -108,6 +94,25 @@ double Perlin::Generator::get(double x, double y, double z) const{
 				grad(permutation[BB+1], x-1, y-1, z-1)
 			)
 		)
+	);
+}
+
+// Repopulates permutation vector using new seed
+void Perlin::Generator::reseed(unsigned int seed){
+	permutation.resize(256);
+
+	// Fill permutation with 0 to 255
+	std::iota(permutation.begin(), permutation.end(), 0);
+
+	// Shuffle permutation with seed
+	std::default_random_engine engine(seed);
+	std::shuffle(permutation.begin(), permutation.end(), engine);
+
+	// Duplicate permutation
+	permutation.insert(
+		permutation.end(),
+		permutation.begin(),
+		permutation.end()
 	);
 }
 
