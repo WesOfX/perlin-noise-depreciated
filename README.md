@@ -2,8 +2,6 @@
 
 A small library for easily creating perlin noise. Strongly based on Ken Perlin's Improved Noise from 2002.
 
-The API consists of two classes, Perlin::Generator and Perlin::Noise. Generator is for generating noise on-demand. Noise is for generating 2D arrays of noise using parameters for frequency, octaves, and persistence.
-
 ## Perlin::Generator
 
 To use the Generator class, construct an object using either the
